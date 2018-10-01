@@ -123,15 +123,20 @@ hd->elems[i]=hd->elems[i+1];
 hd->n=hd->n-1;
 return;
 }
-else{
 
- 
- 
+else if( pos<n && hd->childs[pos+1]->n >=m){
+//take elem from right child and call rec.
+}else if(pos>0 && hd->childs[pos-1] >=m){
+//take elem from left child and call rec.
+}else{
+// merge pos and pos+1 child with val.
 }
 
 /////else get replaced from childs--
 
-} else{
+} 
+else{
+
 struct node * chld=hd->childs[pos];
 if(chld->n >=m)
 {
@@ -139,16 +144,19 @@ delete(chld,val);
 return;
 }
 
+if( pos<n && hd->childs[pos+1]->n >=m){
+//get extra from neighbour
+}else if(pos>0 && hd->childs[pos-1] >=m){
+//get child from left sibling.
+}else if(pos<n){
+//merge with right sibling.
 }
- /// else take extra from sibling or combine 
-
-if(hd->childs[pos]>m-1){
-delete(hd->childs[pos],val);
+else{
+// merge with left sibling.
 }
 
-/// if equal to m-1  do something with childs .. to get them >m-1
 
-
+}
 
 }
 
